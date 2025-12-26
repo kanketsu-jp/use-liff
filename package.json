@@ -45,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/kanketsu-jp/use-liff/issues"
   },
-  "homepage": "https://github.com/kanketsu-jp/use-liff#readme"
+  "homepage": "https://github.com/kanketsu-jp/use-liff#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
