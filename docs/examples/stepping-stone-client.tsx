@@ -8,7 +8,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LiffProvider, useLiffContext } from "@holykzm/use-liff";
+import { LiffProvider, useLiffContext } from "@kanketsu/use-liff";
 
 /**
  * メインコンポーネント

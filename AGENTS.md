@@ -1,15 +1,15 @@
-# AGENTS.md - @holykzm/use-liff プロジェクト固有の指示
+# AGENTS.md - @kanketsu/use-liff プロジェクト固有の指示
 
 ## プロジェクト概要
 
-**@holykzm/use-liff** は、LINE Front-end Framework (LIFF) の使用を簡素化するための React カスタムフック/プロバイダーライブラリです。
+**@kanketsu/use-liff** は、LINE Front-end Framework (LIFF) の使用を簡素化するための React カスタムフック/プロバイダーライブラリです。
 
 | 項目 | 内容 |
 |------|------|
-| パッケージ名 | @holykzm/use-liff |
-| 現在のバージョン | 1.6.0 |
+| パッケージ名 | @kanketsu/use-liff |
+| 現在のバージョン | 1.0.1 |
 | ライセンス | MIT |
-| リポジトリ | https://github.com/holykzm/use-liff |
+| リポジトリ | https://github.com/kanketsu-jp/use-liff |
 
 ## 技術スタック
 
@@ -17,7 +17,7 @@
 |------|----------|------|
 | React | ^18.2.0 | UIライブラリ（peerDependency） |
 | TypeScript | ^4.9.5 | 型安全性 |
-| @line/liff | ^2.23.2 | LINE LIFF SDK |
+| @line/liff | ^2.27.3 | LINE LIFF SDK |
 
 ## プロジェクト構造
 

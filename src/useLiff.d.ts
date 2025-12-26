@@ -1,4 +1,4 @@
-declare module "@holykzm/use-liff" {
+declare module "@kanketsu/use-liff" {
 	import type { ReactNode, ComponentType } from "react";
 	import type { Liff } from "@line/liff";
 	import type { Profile } from "@liff/get-profile";

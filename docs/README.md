@@ -1,6 +1,6 @@
-# @holykzm/use-liff ドキュメント
+# @kanketsu/use-liff ドキュメント
 
-このディレクトリには、`@holykzm/use-liff` ライブラリの詳細なドキュメントとサンプルコードが含まれています。
+このディレクトリには、`@kanketsu/use-liff` ライブラリの詳細なドキュメントとサンプルコードが含まれています。
 
 ## ドキュメント一覧
 
@@ -20,7 +20,7 @@
 ### クライアントサイド
 
 ```tsx
-import { LiffProvider, useLiffContext } from "@holykzm/use-liff";
+import { LiffProvider, useLiffContext } from "@kanketsu/use-liff";
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
 ### サーバーサイド
 
 ```typescript
-import { verifyLiffToken } from "@holykzm/use-liff/server";
+import { verifyLiffToken } from "@kanketsu/use-liff/server";
 
 const result = await verifyLiffToken(idToken, channelId);
 console.log("User ID:", result.userId);
@@ -43,5 +43,5 @@ console.log("User ID:", result.userId);
 ## 関連リンク
 
 - [メインREADME](../README.md)
-- [GitHubリポジトリ](https://github.com/holykzm/use-liff)
+- [GitHubリポジトリ](https://github.com/kanketsu-jp/use-liff)
 

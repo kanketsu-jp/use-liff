@@ -7,7 +7,7 @@
  * 実際の実装では、使用するデータベースに応じて適切なコードを選択してください。
  */
 
-import { verifyLiffToken } from "@holykzm/use-liff/server";
+import { verifyLiffToken } from "@kanketsu/use-liff/server";
 
 /**
  * 共通のデータ型定義

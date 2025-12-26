@@ -5,8 +5,8 @@
  * LINE IDとクエリパラメータをデータベースに保存する方法を示します。
  */
 
-import { verifyLiffToken, getLineUserIdFromToken } from "@holykzm/use-liff/server";
-import type { VerifyTokenResult, TokenVerificationError } from "@holykzm/use-liff/server";
+import { verifyLiffToken, getLineUserIdFromToken } from "@kanketsu/use-liff/server";
+import type { VerifyTokenResult, TokenVerificationError } from "@kanketsu/use-liff/server";
 
 /**
  * リクエストボディの型定義

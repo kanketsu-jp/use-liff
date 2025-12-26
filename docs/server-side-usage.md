@@ -1,11 +1,11 @@
 # サーバーサイドでの使用方法
 
-`@holykzm/use-liff` は、サーバーサイド（Node.js）でも使用できます。サーバーサイドでは、クライアントから送信されたIDトークンを検証し、LINEユーザーIDを取得する機能を提供します。
+`@kanketsu/use-liff` は、サーバーサイド（Node.js）でも使用できます。サーバーサイドでは、クライアントから送信されたIDトークンを検証し、LINEユーザーIDを取得する機能を提供します。
 
 ## インストール
 
 ```bash
-npm install @holykzm/use-liff
+npm install @kanketsu/use-liff
 ```
 
 ## 基本的な使い方
@@ -13,7 +13,7 @@ npm install @holykzm/use-liff
 ### トークンの検証とユーザーIDの取得
 
 ```typescript
-import { verifyLiffToken, getLineUserIdFromToken } from "@holykzm/use-liff/server";
+import { verifyLiffToken, getLineUserIdFromToken } from "@kanketsu/use-liff/server";
 
 // 方法1: 完全なユーザー情報を取得
 try {
@@ -95,7 +95,7 @@ IDトークンからLINEユーザーIDのみを取得します。`verifyLiffToke
 ```typescript
 // app/api/auth/line/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { verifyLiffToken } from "@holykzm/use-liff/server";
+import { verifyLiffToken } from "@kanketsu/use-liff/server";
 
 export async function POST(request: NextRequest) {
   try {
@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
 
 ```typescript
 import express from "express";
-import { verifyLiffToken } from "@holykzm/use-liff/server";
+import { verifyLiffToken } from "@kanketsu/use-liff/server";
 
 const app = express();
 app.use(express.json());

@@ -6,18 +6,18 @@ This is a custom hook for LINE Front-end Framework (LIFF) to simplify the usage 
 ## Installation / インストール
 
 ```bash
-npm install @holykzm/use-liff
+npm install @kanketsu/use-liff
 ```
 
 ## Usage / 使い方
 
 ### Import the LiffProvider / LiffProvider のインポート
 
-First, import the `LiffProvider` from `@holykzm/use-liff` into your application.  
-まず、アプリケーションに `@holykzm/use-liff` から `LiffProvider` をインポートします。
+First, import the `LiffProvider` from `@kanketsu/use-liff` into your application.  
+まず、アプリケーションに `@kanketsu/use-liff` から `LiffProvider` をインポートします。
 
 ```javascript
-import { LiffProvider } from "@holykzm/use-liff";
+import { LiffProvider } from "@kanketsu/use-liff";
 ```
 
 ### Set up the LIFF Provider / LIFF プロバイダーの設定
@@ -27,7 +27,7 @@ Wrap your application with the `LiffProvider` component. Make sure to set up the
 
 ```javascript
 // app/liff/layout.tsx
-import { LiffProvider } from "@holykzm/use-liff";
+import { LiffProvider } from "@kanketsu/use-liff";
 
 const AppLayout: React.FC = ({ children }) => {
   return <LiffProvider liffId="必須">{children}</LiffProvider>;
@@ -44,7 +44,7 @@ You can customize the error and loading screens by passing custom components to 
 ```tsx
 // app/liff/layout.tsx
 "use client"; // 必須！
-import { LiffProvider } from "@holykzm/use-liff";
+import { LiffProvider } from "@kanketsu/use-liff";
 import CustomError from "./_parts/CustomError";
 import { CustomLoading } from "./_parts/CustomLoading";
 
@@ -74,7 +74,7 @@ LINEログイン後にクエリパラメータを保持するには、`loginConf
 ```tsx
 // app/liff/layout.tsx
 "use client";
-import { LiffProvider } from "@holykzm/use-liff";
+import { LiffProvider } from "@kanketsu/use-liff";
 
 export default function LiffLayout({
   children,
@@ -169,7 +169,7 @@ You can access the LIFF functionality in your components by using the `useLiffCo
 ```javascript
 // app/components/Profile.tsx
 import React from "react";
-import { useLiffContext } from "@holykzm/use-liff";
+import { useLiffContext } from "@kanketsu/use-liff";
 
 const Profile: React.FC = () => {
   const { currentUser, liff } = useLiffContext();
@@ -207,7 +207,7 @@ This library also provides server-side functions for token verification and LINE
 
 ```typescript
 // Server-side (Node.js)
-import { verifyLiffToken, getLineUserIdFromToken } from "@holykzm/use-liff/server";
+import { verifyLiffToken, getLineUserIdFromToken } from "@kanketsu/use-liff/server";
 
 // Verify token and get user information
 const result = await verifyLiffToken(idToken, channelId);
