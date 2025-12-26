@@ -66,6 +66,45 @@ export default function LiffLayout({
 }
 ```
 
+### Preserving Query Parameters on Login / ログイン時にクエリパラメータを保持する
+
+To preserve query parameters after LINE login, you can specify `redirectUri` in the `loginConfig` prop.  
+LINEログイン後にクエリパラメータを保持するには、`loginConfig`プロパティで`redirectUri`を指定できます。
+
+```tsx
+// app/liff/layout.tsx
+"use client";
+import { LiffProvider } from "@holykzm/use-liff";
+
+export default function LiffLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <LiffProvider
+      liffId={String(process.env.NEXT_PUBLIC_LIFF_ID)}
+      loginConfig={{
+        redirectUri: window.location.href, // 現在のURL（クエリパラメータ含む）をそのまま引き継ぐ例
+        // redirectUri: "https://example.com/liff/callback?foo=bar", // 固定URLを指定する例
+        // redirectUri: "https://example.com/liff/callback?foo=bar&baz=qux", // クエリを明示的に付ける例
+      }}
+    >
+      {children}
+    </LiffProvider>
+  );
+}
+```
+
+**Important Notes / 重要な注意事項:**
+
+- The `redirectUri` must match the endpoint URL configured in the LIFF management console (prefix match is acceptable).  
+  `redirectUri`は、LIFF管理画面で設定したエンドポイントURLと一致する必要があります（前方一致でOKです）。
+- If `loginConfig` is not specified, the default behavior (no redirectUri) will be used, which uses the endpoint URL from the LIFF management console.  
+  `loginConfig`を指定しない場合、デフォルトの動作（redirectUriなし）が使用され、LIFF管理画面で設定したエンドポイントURLが使用されます。
+- For more details, see the [LIFF API Reference](https://developers.line.biz/ja/reference/liff/#login).  
+  詳細については、[LIFF APIリファレンス](https://developers.line.biz/ja/reference/liff/#login)を参照してください。
+
 ```tsx
 // app/liff/components/CustomError.tsx
 
@@ -133,15 +172,19 @@ import React from "react";
 import { useLiffContext } from "@holykzm/use-liff";
 
 const Profile: React.FC = () => {
-  const { currentUser, liffControls } = useLiffContext();
+  const { currentUser, liff } = useLiffContext();
 
   // Accessing user profile
-  const profileName = currentUser?.displayName || "Unknown";
+  // displayName is automatically set to "Unknown" if not provided by LINE
+  // displayNameはLINEから提供されない場合、自動的に"Unknown"が設定されます
+  const profileName = currentUser?.displayName; // No need for || "Unknown"
 
   // Accessing LIFF functionality
+  // You can use either 'liff' or 'liffControls' (both are the same)
+  // 'liff' または 'liffControls' のどちらでも使用できます（同じ値です）
   const sendMessage = () => {
-    if (liffControls) {
-      liffControls.sendMessages([{ type: "text", text: "Hello, world!" }]);
+    if (liff) {
+      liff.sendMessages([{ type: "text", text: "Hello, world!" }]);
     }
   };
 
@@ -157,6 +200,30 @@ const Profile: React.FC = () => {
 export default Profile;
 ```
 
+### Server-Side Usage / サーバーサイドでの使用
+
+This library also provides server-side functions for token verification and LINE user ID retrieval.  
+このライブラリは、トークン検証とLINEユーザーID取得のためのサーバーサイド関数も提供します。
+
+```typescript
+// Server-side (Node.js)
+import { verifyLiffToken, getLineUserIdFromToken } from "@holykzm/use-liff/server";
+
+// Verify token and get user information
+const result = await verifyLiffToken(idToken, channelId);
+console.log("User ID:", result.userId);
+
+// Or get only user ID
+const userId = await getLineUserIdFromToken(idToken, channelId);
+```
+
+For detailed documentation and examples, see the [docs](./docs/) directory.  
+詳細なドキュメントとサンプルについては、[docs](./docs/) ディレクトリを参照してください。
+
+- [踏み台LIFFの使い方](./docs/stepping-stone-liff.md)
+- [サーバーサイドでの使用方法](./docs/server-side-usage.md)
+- [サンプルコード](./docs/examples/)
+
 ## License / ライセンス
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.  
@@ -170,6 +237,19 @@ Bug reports and feature suggestions are welcome via Issues. Pull requests are al
 ## Author / 作者
 
 [Kazuma Horiike](https://github.com/holykzm)
+
+## Version Information / バージョン情報
+
+This library uses `@line/liff` version `^2.27.3`.  
+このライブラリは `@line/liff` バージョン `^2.27.3` を使用しています。
+
+### Pluggable SDK / プラッガブルSDK
+
+LIFF SDK v2.16.0以降では、プラッガブルSDKが利用可能です。プラッガブルSDKを使用することで、必要な機能のみをインポートし、バンドルサイズを削減できます。  
+詳細については、[プラッガブルSDKのドキュメント](https://developers.line.biz/ja/docs/liff/pluggable-sdk/#pluggable-sdk-use-conditions)を参照してください。
+
+**Note:** This library uses the standard `@line/liff` package. If you want to use the pluggable SDK, you may need to implement LIFF initialization manually.  
+**注意:** このライブラリは標準の `@line/liff` パッケージを使用しています。プラッガブルSDKを使用したい場合は、LIFFの初期化を手動で実装する必要がある場合があります。
 
 ## Support / サポート
 
