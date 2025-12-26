@@ -17,6 +17,9 @@
   "scripts": {
     "build": "tsc"
   },
+  "bin": {
+    "use-liff-migrate": "./bin/migrate.js"
+  },
   "keywords": [
     "liff",
     "line",

@@ -6,6 +6,7 @@
 
 ### 基本ガイド
 
+- **[移行ガイド](./migration-guide.md)** - @holykzm/use-liff から @kanketsu/use-liff への移行方法
 - **[踏み台LIFFの使い方](./stepping-stone-liff.md)** - LIFFを踏み台として使用し、LINEログインとユーザーID取得を行う方法
 - **[サーバーサイドでの使用方法](./server-side-usage.md)** - サーバーサイドでトークン検証とLINE ID取得を行う方法
 

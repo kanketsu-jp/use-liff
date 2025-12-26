@@ -220,9 +220,23 @@ const userId = await getLineUserIdFromToken(idToken, channelId);
 For detailed documentation and examples, see the [docs](./docs/) directory.  
 詳細なドキュメントとサンプルについては、[docs](./docs/) ディレクトリを参照してください。
 
+- [移行ガイド](./docs/migration-guide.md) - @holykzm/use-liff から移行する場合
 - [踏み台LIFFの使い方](./docs/stepping-stone-liff.md)
 - [サーバーサイドでの使用方法](./docs/server-side-usage.md)
 - [サンプルコード](./docs/examples/)
+
+### Migration from @holykzm/use-liff / @holykzm/use-liff からの移行
+
+If you're using the old package `@holykzm/use-liff`, you can migrate easily:  
+既存の `@holykzm/use-liff` を使用している場合、簡単に移行できます：
+
+```bash
+# 自動移行（推奨）
+npx @kanketsu/use-liff migrate
+```
+
+For detailed migration instructions, see the [Migration Guide](./docs/migration-guide.md).  
+詳細な移行手順については、[移行ガイド](./docs/migration-guide.md)を参照してください。
 
 ## License / ライセンス
 
