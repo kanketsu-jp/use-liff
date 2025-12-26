@@ -40,10 +40,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holykzm/use-liff.git"
+    "url": "git+https://github.com/kanketsu-jp/use-liff"
   },
   "bugs": {
-    "url": "https://github.com/holykzm/use-liff/issues"
+    "url": "https://github.com/kanketsu-jp/use-liff/issues"
   },
-  "homepage": "https://github.com/holykzm/use-liff#readme"
+  "homepage": "https://github.com/kanketsu-jp/use-liff#readme"
 }
